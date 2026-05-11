@@ -39,7 +39,7 @@ services:
 networks:
   # La definimos como externa porque la crearemos en el script de shell
   jenkins-jpsm:
-    external: true
+    driver: overlay
 
 volumes:
   db_data:
