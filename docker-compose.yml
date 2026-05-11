@@ -4,11 +4,11 @@ services:
   db:
     image: postgres:15-alpine
     environment:
-      POSTGRES_USER: pablo
+      POSTGRES_USER: pablosm
       POSTGRES_PASSWORD: tu_password_seguro
-      POSTGRES_DB: db_examen
+      POSTGRES_DB: db_jenkins
     networks:
-      - examen_jpsm
+      - jenkins_jpsm
     volumes:
       - db_data:/var/lib/postgresql/data
     deploy:
@@ -22,10 +22,10 @@ services:
   web:
     image: pablosanchezm/jenkins:latest
     ports:
-      - "80:5000"
+      - "8080:5000"
     environment:
       # Conexión usando el nombre del servicio 'db'
-      DATABASE_URL: postgresql://pablo:tu_password_seguro@db:5432/db_examen
+      DATABASE_URL: postgresql://pablosm:tu_password_seguro@db:5432/db_jenkins
     networks:
       - jenkins-jpsm
     deploy:
