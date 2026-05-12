@@ -27,7 +27,7 @@ services:
       # Conexión usando el nombre del servicio 'db'
       DATABASE_URL: postgresql://pablosm:tu_password_seguro@db:5432/db_jenkins
     networks:
-      - jenkins-jpsm
+      - jenkins_jpsm
     deploy:
       replicas: 3
       update_config:
@@ -38,7 +38,7 @@ services:
 
 networks:
   # La definimos como externa porque la crearemos en el script de shell
-  jenkins-jpsm:
+  jenkins_jpsm:
     driver: overlay
 
 volumes:
